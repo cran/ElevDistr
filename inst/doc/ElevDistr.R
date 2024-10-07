@@ -1,26 +1,26 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 
-## ---- message=FALSE, include = FALSE------------------------------------------
+## ----message=FALSE, include = FALSE-------------------------------------------
 library(ElevDistr)
 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  install.packages("ElevDistr")
 #  library("ElevDistr")
 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  install.packages("devtools", repos = "http://cran.us.r-project.org")
 #  devtools::install_github("LivioBaetscher/ElevDistr")
 #  library("ElevDistr")
 
 ## -----------------------------------------------------------------------------
-gstURL <- paste0("https://os.zhdk.cloud.switch.ch/envicloud/chelsa/chelsa_V2/",
-                 "GLOBAL/climatologies/1981-2010/bio/CHELSA_gst_1981-2010_V.2.1.tif")
-gslURL <- paste0("https://os.zhdk.cloud.switch.ch/envicloud/chelsa/chelsa_V2/",
-                 "GLOBAL/climatologies/1981-2010/bio/CHELSA_gsl_1981-2010_V.2.1.tif")
+gstURL <- paste0("https://os.zhdk.cloud.switch.ch/chelsav2/GLOBAL/",
+                 "climatologies/1981-2010/bio/CHELSA_gst_1981-2010_V.2.1.tif")
+gslURL <- paste0("https://os.zhdk.cloud.switch.ch/chelsav2/GLOBAL/",
+                 "climatologies/1981-2010/bio/CHELSA_gsl_1981-2010_V.2.1.tif")
 
 gst <- terra::rast(gstURL, vsi = TRUE)
 gsl <- terra::rast(gslURL, vsi = TRUE)
@@ -31,25 +31,25 @@ gmted2010URL <- paste0("https://edcintl.cr.usgs.gov/downloads/sciweb1/shared/top
 
 gmted2010Part <- terra::rast(gmted2010URL, vsi = TRUE)
 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  distance_to_treeline(lon = 8.65, lat = 46.87,  gstRaster = gst,  gslRaster = gsl,
 #                       elevationRaster = gmted2010Part, elevation = 504, pointDf = pointsAboveTreeline,
 #                       plot = FALSE, plotHist = FALSE, gstMin = 6.4, gslMin = 94)
 
-## ----fig.cap = "Example of a sampled area", fig.dim=c(7, 7), echo = FALSE, message = FALSE----
-#ggmap::ggmap_show_api_key()
-point <- as.list(c(8.728898, 46.9375))
-temp <- generate_grid(8.728898, 46.93756, 10, 0.0025)
-temp$df <- classify_above_treeline(temp$df, gst, gsl)
-treeline <- sample_treeline(temp$df, temp$lonLength, temp$latLength, 0.0025)
-plot_distr(point, temp$df, treeline, 12)
+## ----eval=FALSE, fig.cap="Example of a sampled area", fig.dim=c(7, 7), message=FALSE, include=FALSE----
+#  #ggmap::ggmap_show_api_key()
+#  point <- as.list(c(8.728898, 46.9375))
+#  temp <- generate_grid(8.728898, 46.93756, 10, 0.0025)
+#  temp$df <- classify_above_treeline(temp$df, gst, gsl)
+#  treeline <- sample_treeline(temp$df, temp$lonLength, temp$latLength, 0.0025)
+#  plot_distr(point, temp$df, treeline, 12)
 
-## ----fig.cap = "Example of treelinie distribution", echo = FALSE, fig.dim=c(7, 6), message = FALSE----
-point <- as.list(c(8.728898, 46.9375))
-temp <- generate_grid(8.728898, 46.93756, 10, 0.0025)
-temp$df <- classify_above_treeline(temp$df, gst, gsl)
-treeline <- sample_treeline(temp$df, temp$lonLength, temp$latLength, 0.0025)
-x <- calculate_distance(treeline = treeline, elevationRaster = gmted2010Part, pointElevation = 512, treelineSampling = 10, plot = TRUE)
+## ----eval=FALSE, fig.cap="Example of treelinie distribution", fig.dim=c(7, 6), message=FALSE, include=FALSE----
+#  point <- as.list(c(8.728898, 46.9375))
+#  temp <- generate_grid(8.728898, 46.93756, 10, 0.0025)
+#  temp$df <- classify_above_treeline(temp$df, gst, gsl)
+#  treeline <- sample_treeline(temp$df, temp$lonLength, temp$latLength, 0.0025)
+#  x <- calculate_distance(treeline = treeline, elevationRaster = gmted2010Part, pointElevation = 512, treelineSampling = 10, plot = TRUE)
 
 ## -----------------------------------------------------------------------------
 #install.packages("rgbif") #Remove hashtag if you have not installed this package
@@ -78,24 +78,24 @@ ranunculusSampled <- ranunculusFiltered %>% group_by(scientificName) %>% slice_h
 
 ## ----print = FALSE------------------------------------------------------------
 #Import climatic layers
-gstURL <- paste0("https://os.zhdk.cloud.switch.ch/envicloud/chelsa/chelsa_V2/",
-                 "GLOBAL/climatologies/1981-2010/bio/CHELSA_gst_1981-2010_V.2.1.tif")
-gslURL <- paste0("https://os.zhdk.cloud.switch.ch/envicloud/chelsa/chelsa_V2/",
-                 "GLOBAL/climatologies/1981-2010/bio/CHELSA_gsl_1981-2010_V.2.1.tif")
+gstURL <- paste0("https://os.zhdk.cloud.switch.ch/chelsav2/GLOBAL/",
+                 "climatologies/1981-2010/bio/CHELSA_gst_1981-2010_V.2.1.tif")
+gslURL <- paste0("https://os.zhdk.cloud.switch.ch/chelsav2/GLOBAL/",
+                 "climatologies/1981-2010/bio/CHELSA_gsl_1981-2010_V.2.1.tif")
 
 gst <- terra::rast(gstURL, vsi = TRUE)
 gsl <- terra::rast(gslURL, vsi = TRUE)
 
 #Import the DEM
-gmted2010URL <- paste0("https://edcintl.cr.usgs.gov/downloads/sciweb1/shared/topo/downloads/GMTED/",
-                      "Global_tiles_GMTED/300darcsec/med/E000/30N000E_20101117_gmted_med300.tif")
+gmted2010URL2 <- paste0("https://edcintl.cr.usgs.gov/downloads/sciweb1/shared/topo/downloads/GMTED/",
+                      "Global_tiles_GMTED/300darcsec/med/E000/50N000E_20101117_gmted_med300.tif")
 
-gmted2010Part <- terra::rast(gmted2010URL, vsi = TRUE)
+gmted2010Part2 <- terra::rast(gmted2010URL2, vsi = TRUE)
 
 #Run classification for the first five elements
 elev <- distance_to_treeline(lon = ranunculusSampled$decimalLongitude[1:5], 
                              lat = ranunculusSampled$decimalLatitude[1:5], gstRaster = gst,
-                             gslRaster = gsl, elevationRaster = gmted2010Part, pointDf = pointsAboveTreeline,
+                             gslRaster = gsl, elevationRaster = gmted2010Part2, pointDf = pointsAboveTreeline,
                              elevation = ranunculusSampled$elevation[1:5], plot = FALSE, 
                              plotHist = FALSE, gstMin = 6.4, gslMin = 94)
 

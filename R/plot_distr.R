@@ -53,6 +53,6 @@ plot_distr <- function(nearestCorner, grid, treelineDf, size = 12) {
 
   #Else we throw a warning
   } else {
-    warning("Could not download a map. Plot is not generated. Please enable the APIs. See: https://www.rdocumentation.org/packages/ggmap/versions/3.0.0.")
+    warning("Could not download a map. Plot is not generated. Please enable the APIs. See: https://search.r-project.org/CRAN/refmans/ggmap/html/register_google.html")
   }
 }

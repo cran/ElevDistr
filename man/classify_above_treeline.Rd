@@ -29,15 +29,15 @@ The boolean indicates if the point is above the treeline.
 \description{
 Calculates if the points (from the input data frame \code{coords}) are above the treeline (\code{TRUE}) or not (\code{FALSE}).
 This is achieved by using climate layers for growing season length and growing season temperature. For each coordinate a value from both
-rasters is extracted and added to the input data frame. Then points are classified, the default thresholds and the treeline definition
+raster is extracted and added to the input data frame. Then points are classified, the default thresholds and the treeline definition
 is based on Paulsen and Körner, Alp. Bot. 124: 1-12 (2014). Classification (as boolean) is also added to the output.
 }
 \examples{
 #Get raster layer from CHELSA
-gstURL <- paste0("https://os.zhdk.cloud.switch.ch/envicloud/chelsa/chelsa_V2/",
-                 "GLOBAL/climatologies/1981-2010/bio/CHELSA_gst_1981-2010_V.2.1.tif")
-gslURL <- paste0("https://os.zhdk.cloud.switch.ch/envicloud/chelsa/chelsa_V2/",
-                 "GLOBAL/climatologies/1981-2010/bio/CHELSA_gsl_1981-2010_V.2.1.tif")
+gstURL <- paste0("https://os.zhdk.cloud.switch.ch/chelsav2/GLOBAL/",
+                 "climatologies/1981-2010/bio/CHELSA_gst_1981-2010_V.2.1.tif")
+gslURL <- paste0("https://os.zhdk.cloud.switch.ch/chelsav2/GLOBAL/",
+                 "climatologies/1981-2010/bio/CHELSA_gsl_1981-2010_V.2.1.tif")
 \donttest{
 gst <- terra::rast(gstURL, vsi = TRUE)
 gsl <- terra::rast(gslURL, vsi = TRUE)

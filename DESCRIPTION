@@ -1,6 +1,6 @@
 Package: ElevDistr
 Title: Calculate the Distance to the Nearest Local Treeline
-Version: 1.0.8
+Version: 1.0.9
 Authors@R: c(
     person("Livio", "Bätscher", , "livio_999@hotmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-2989-930X")),
@@ -22,11 +22,11 @@ VignetteBuilder: knitr
 Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 NeedsCompilation: no
-Packaged: 2024-04-12 16:30:12 UTC; Livio
+Packaged: 2024-10-07 16:14:40 UTC; liviobatscher
 Author: Livio Bätscher [aut, cre] (<https://orcid.org/0000-0002-2989-930X>),
   Jurriaan M. de Vos [aut] (<https://orcid.org/0000-0001-6428-7774>)
 Maintainer: Livio Bätscher <livio_999@hotmail.com>
 Repository: CRAN
-Date/Publication: 2024-04-14 19:10:02 UTC
+Date/Publication: 2024-10-07 16:30:02 UTC

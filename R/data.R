@@ -13,7 +13,7 @@
 #'   \item{longitude}{Longitude of the point (in degrees; WGS 84).}
 #'   \item{latitude}{Latitude of the point (in degrees; WGS 84).}
 #' }
-#' @source gstRaster: \url{https://os.zhdk.cloud.switch.ch/envicloud/chelsa/chelsa_V2/GLOBAL/climatologies/1981-2010/bio/CHELSA_gst_1981-2010_V.2.1.tif}
-#' @source gslRaster: \url{https://os.zhdk.cloud.switch.ch/envicloud/chelsa/chelsa_V2/GLOBAL/climatologies/1981-2010/bio/CHELSA_gsl_1981-2010_V.2.1.tif}
+#' @source gstRaster: \url{https://os.zhdk.cloud.switch.ch/chelsav2/GLOBAL/climatologies/1981-2010/bio/CHELSA_gst_1981-2010_V.2.1.tif}
+#' @source gslRaster: \url{https://os.zhdk.cloud.switch.ch/chelsav2/GLOBAL/climatologies/1981-2010/bio/CHELSA_gsl_1981-2010_V.2.1.tif}
 "pointsAboveTreeline"
 

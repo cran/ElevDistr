@@ -37,10 +37,10 @@ if they have the same order and structure as results from \code{generate_grid}.
 #Recommended usage
 temp <- generate_grid(lon = 8.728898, lat = 46.93756, squareSize = 10, stepSize = 0.0025)
 
-gstURL <- paste0("https://os.zhdk.cloud.switch.ch/envicloud/chelsa/chelsa_V2/",
-                 "GLOBAL/climatologies/1981-2010/bio/CHELSA_gst_1981-2010_V.2.1.tif")
-gslURL <- paste0("https://os.zhdk.cloud.switch.ch/envicloud/chelsa/chelsa_V2/",
-                 "GLOBAL/climatologies/1981-2010/bio/CHELSA_gsl_1981-2010_V.2.1.tif")
+gstURL <- paste0("https://os.zhdk.cloud.switch.ch/chelsav2/GLOBAL/",
+                 "climatologies/1981-2010/bio/CHELSA_gst_1981-2010_V.2.1.tif")
+gslURL <- paste0("https://os.zhdk.cloud.switch.ch/chelsav2/GLOBAL/",
+                 "climatologies/1981-2010/bio/CHELSA_gsl_1981-2010_V.2.1.tif")
 \donttest{
 gst <- terra::rast(gstURL, vsi = TRUE)
 gsl <- terra::rast(gslURL, vsi = TRUE)
